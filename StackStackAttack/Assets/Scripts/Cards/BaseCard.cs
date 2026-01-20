@@ -4,7 +4,7 @@ using UnityEngine;
 public class BaseCard : ScriptableObject
 {
     public string elementName;
-    public string elementId;
+    public int elementId;
     public string cardName;
     // Damage done by an individual isolated card
     public int baseAttackPoints;
