@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 public class MultiplierManager : MonoBehaviour
 {
+    public static MultiplierManager Instance { private set; get; }
+
     private float currentMultiplier;
     private BaseCard previousCard;
 
@@ -48,6 +50,13 @@ public class MultiplierManager : MonoBehaviour
         synergyList.Add(new Synergy { previous = 2, current = 0 });
         synergyList.Add(new Synergy { previous = 1, current = 2 });
 
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one instance of MultiplierManager - " + transform);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
 
     }
     private enum State
@@ -130,6 +139,11 @@ public class MultiplierManager : MonoBehaviour
             return;
         }
         damage += currentSelectedCard.baseAttackPoints * currentMultiplier;
+    }
+
+    public int GetRoundedDamage()
+    {
+        return Mathf.RoundToInt(damage);
     }
 
     public float GetCurrentMultiplier()
