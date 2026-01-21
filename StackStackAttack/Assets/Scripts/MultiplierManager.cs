@@ -38,6 +38,7 @@ public class MultiplierManager : MonoBehaviour
 
     private void Awake()
     {
+        synergyList = new List<Synergy>();
         currentMultiplier = 1f;
         previousCard = null;
         state = State.Zero;

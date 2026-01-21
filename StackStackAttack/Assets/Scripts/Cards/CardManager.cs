@@ -14,35 +14,49 @@ public class CardManager : MonoBehaviour
     private List<BaseCard> activePlayerCards;
     private void Awake()
     {
+        // populating the map with all possible cards
+        allCardMap = new Dictionary<int, List<BaseCard>>();
+        List<BaseCard> tempList = new List<BaseCard>();
+
         // index 0 - fireCards
         foreach(BaseCard baseCard in fireCards)
         {
-            allCardMap[0].Add(baseCard);
+            tempList.Add(baseCard);
         }
+        allCardMap.Add(0, tempList);
+        tempList.Clear();
 
         // index 1 - waterCards
         foreach (BaseCard baseCard in waterCards)
         {
-            allCardMap[1].Add(baseCard);
+            tempList.Add(baseCard);
         }
+        allCardMap.Add(1, tempList);
+        tempList.Clear();
 
         // index 2 - lightningCards
         foreach (BaseCard baseCard in lightningCards)
         {
-            allCardMap[2].Add(baseCard);
+            tempList.Add(baseCard);
         }
+        allCardMap.Add(2, tempList);
+        tempList.Clear();
 
         // index 3 - earthCards
         foreach (BaseCard baseCard in earthCards)
         {
-            allCardMap[3].Add(baseCard);
+            tempList.Add(baseCard);
         }
+        allCardMap.Add(3, tempList);
+        tempList.Clear();
 
         // index 4 - windCards
         foreach (BaseCard baseCard in windCards)
         {
-            allCardMap[4].Add(baseCard);
+            tempList.Add(baseCard);
         }
+        allCardMap.Add(4, tempList);
+        tempList.Clear();
     }
 
     private void Start()
