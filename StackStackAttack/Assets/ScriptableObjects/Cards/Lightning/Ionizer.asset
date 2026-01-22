@@ -15,6 +15,6 @@ MonoBehaviour:
   elementName: Lightning
   elementId: 2
   cardName: Ionizer
-  baseAttackPoints: 20
+  baseAttackPoints: 30
   cardIndex: 5
   stackMultiplier: 10

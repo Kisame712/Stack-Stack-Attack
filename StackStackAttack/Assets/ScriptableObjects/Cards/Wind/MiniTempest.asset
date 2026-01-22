@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 140f9302d6fda5f4c93d417e63f17a5f, type: 3}
-  m_Name: FieldSweeper
+  m_Name: MiniTempest
   m_EditorClassIdentifier: Assembly-CSharp::BaseCard
-  elementName: 
-  elementId: 
-  cardName: 
-  baseAttackPoints: 0
-  cardIndex: 0
-  stackMultiplier: 0
+  elementName: Wind
+  elementId: 4
+  cardName: Mini Tempest
+  baseAttackPoints: 20
+  cardIndex: 4
+  stackMultiplier: 8

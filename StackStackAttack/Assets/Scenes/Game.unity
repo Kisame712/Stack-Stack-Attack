@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 566516009}
   - component: {fileID: 566516008}
   - component: {fileID: 566516007}
+  - component: {fileID: 566516011}
   m_Layer: 5
   m_Name: WaterIcon
   m_TagString: Untagged
@@ -546,6 +547,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566516005}
   m_CullTransparentMesh: 1
+--- !u!114 &566516011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566516005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c5daed0bf57740b84a410461928f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementIcon
+  elementCardParent: {fileID: 1869750761}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 735051248}
   - component: {fileID: 735051249}
+  - component: {fileID: 735051250}
   m_Layer: 5
   m_Name: FireCardParent
   m_TagString: Untagged
@@ -690,6 +705,20 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 10}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &735051250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735051247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51a22e8b6cd5f44a45d6aed25a724a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementCardParent
+  elementId: 0
+  cardPrefab: {fileID: 1521621796498725174, guid: 650f45fe49dc2f840b39c2ddf25e3a1d, type: 3}
 --- !u!1 &1111707916
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +732,7 @@ GameObject:
   - component: {fileID: 1111707920}
   - component: {fileID: 1111707919}
   - component: {fileID: 1111707918}
+  - component: {fileID: 1111707922}
   m_Layer: 5
   m_Name: FireIcon
   m_TagString: Untagged
@@ -833,6 +863,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111707916}
   m_CullTransparentMesh: 1
+--- !u!114 &1111707922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111707916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c5daed0bf57740b84a410461928f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementIcon
+  elementCardParent: {fileID: 735051247}
 --- !u!1 &1330300591
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +1023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388128975}
   - component: {fileID: 1388128976}
+  - component: {fileID: 1388128977}
   m_Layer: 5
   m_Name: LightningCardParent
   m_TagString: Untagged
@@ -1030,6 +1074,20 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 10}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &1388128977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388128974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51a22e8b6cd5f44a45d6aed25a724a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementCardParent
+  elementId: 2
+  cardPrefab: {fileID: 1521621796498725174, guid: 650f45fe49dc2f840b39c2ddf25e3a1d, type: 3}
 --- !u!1 &1428570649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1351,7 @@ GameObject:
   - component: {fileID: 1692158664}
   - component: {fileID: 1692158663}
   - component: {fileID: 1692158662}
+  - component: {fileID: 1692158666}
   m_Layer: 5
   m_Name: LightningIcon
   m_TagString: Untagged
@@ -1423,6 +1482,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692158660}
   m_CullTransparentMesh: 1
+--- !u!114 &1692158666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692158660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c5daed0bf57740b84a410461928f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementIcon
+  elementCardParent: {fileID: 1388128974}
 --- !u!1 &1723032705
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1653,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f12a1ecf66dd2a346a8a27a8307dfb5b, type: 2}
   - {fileID: 11400000, guid: 62c4efe5250532b458e5540ea5814a28, type: 2}
   - {fileID: 11400000, guid: 6865c3d8b61ddea428caf3c21b89d9ad, type: 2}
+  player: {fileID: 1947158437}
 --- !u!1 &1869750761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1869750762}
   - component: {fileID: 1869750763}
+  - component: {fileID: 1869750764}
   m_Layer: 5
   m_Name: WaterCardParent
   m_TagString: Untagged
@@ -1641,6 +1715,20 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 10}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &1869750764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869750761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51a22e8b6cd5f44a45d6aed25a724a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementCardParent
+  elementId: 1
+  cardPrefab: {fileID: 1521621796498725174, guid: 650f45fe49dc2f840b39c2ddf25e3a1d, type: 3}
 --- !u!1 &1946938291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,6 +1739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1946938292}
   - component: {fileID: 1946938293}
+  - component: {fileID: 1946938294}
   m_Layer: 5
   m_Name: WindCardParent
   m_TagString: Untagged
@@ -1701,6 +1790,20 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 10}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &1946938294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946938291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51a22e8b6cd5f44a45d6aed25a724a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementCardParent
+  elementId: 4
+  cardPrefab: {fileID: 1521621796498725174, guid: 650f45fe49dc2f840b39c2ddf25e3a1d, type: 3}
 --- !u!1 &1947158435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1848,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3f371e1a83ad049b6a54cf448eaa2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  playerCards: []
+  playerCards:
+  - {fileID: 11400000, guid: 5d2af5d03cacad04b8cfe6d74ff9f98a, type: 2}
+  - {fileID: 11400000, guid: 9df1d64bbb1dc2c4585669bb97c597ad, type: 2}
+  - {fileID: 11400000, guid: f484c6770371c2241a072d34f74fd353, type: 2}
+  - {fileID: 11400000, guid: 9f2546b7eaa3fe241bdabb71cfca597f, type: 2}
   stackLimit: 5
 --- !u!1 &1984661496
 GameObject:
@@ -1757,6 +1864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1984661497}
   - component: {fileID: 1984661498}
+  - component: {fileID: 1984661499}
   m_Layer: 5
   m_Name: EarthCardParent
   m_TagString: Untagged
@@ -1807,6 +1915,20 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 10}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!114 &1984661499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984661496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51a22e8b6cd5f44a45d6aed25a724a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementCardParent
+  elementId: 3
+  cardPrefab: {fileID: 1521621796498725174, guid: 650f45fe49dc2f840b39c2ddf25e3a1d, type: 3}
 --- !u!1 &1995866217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +2019,7 @@ GameObject:
   - component: {fileID: 2061682237}
   - component: {fileID: 2061682236}
   - component: {fileID: 2061682235}
+  - component: {fileID: 2061682239}
   m_Layer: 5
   m_Name: EarthIcon
   m_TagString: Untagged
@@ -2027,6 +2150,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061682233}
   m_CullTransparentMesh: 1
+--- !u!114 &2061682239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061682233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c5daed0bf57740b84a410461928f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementIcon
+  elementCardParent: {fileID: 1984661496}
 --- !u!1 &2094691998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,6 +2176,7 @@ GameObject:
   - component: {fileID: 2094692002}
   - component: {fileID: 2094692001}
   - component: {fileID: 2094692000}
+  - component: {fileID: 2094692004}
   m_Layer: 5
   m_Name: WindIcon
   m_TagString: Untagged
@@ -2170,6 +2307,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094691998}
   m_CullTransparentMesh: 1
+--- !u!114 &2094692004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094691998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49c5daed0bf57740b84a410461928f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ElementIcon
+  elementCardParent: {fileID: 1946938291}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
