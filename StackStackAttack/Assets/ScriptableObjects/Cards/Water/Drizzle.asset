@@ -15,6 +15,6 @@ MonoBehaviour:
   elementName: Water
   elementId: 1
   cardName: Drizzle
-  baseAttackPoints: 0
+  baseAttackPoints: 5
   cardIndex: 0
-  stackMultiplier: 0
+  stackMultiplier: 1.2

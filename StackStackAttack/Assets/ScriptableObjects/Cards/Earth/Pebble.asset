@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140f9302d6fda5f4c93d417e63f17a5f, type: 3}
   m_Name: Pebble
   m_EditorClassIdentifier: Assembly-CSharp::BaseCard
-  elementName: 
-  elementId: 
-  cardName: 
-  baseAttackPoints: 0
+  elementName: Earth
+  elementId: 3
+  cardName: Pebble
+  baseAttackPoints: 5
   cardIndex: 0
-  stackMultiplier: 0
+  stackMultiplier: 1.1

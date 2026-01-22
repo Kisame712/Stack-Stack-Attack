@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140f9302d6fda5f4c93d417e63f17a5f, type: 3}
   m_Name: MildRain
   m_EditorClassIdentifier: Assembly-CSharp::BaseCard
-  elementName: 
-  elementId: 
-  cardName: 
-  baseAttackPoints: 0
-  cardIndex: 0
-  stackMultiplier: 0
+  elementName: Water
+  elementId: 1
+  cardName: Mild Rain
+  baseAttackPoints: 10
+  cardIndex: 1
+  stackMultiplier: 1.5
