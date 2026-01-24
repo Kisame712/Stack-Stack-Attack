@@ -16,5 +16,5 @@ public class BaseCard : ScriptableObject
     public float stackMultiplier;
 
     // Add a sprite for every element to reprent the card type
-    // public Sprite elementSprite
+    public Sprite elementSprite;
 }

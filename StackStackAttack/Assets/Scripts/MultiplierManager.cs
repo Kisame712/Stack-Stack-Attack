@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 public class MultiplierManager : MonoBehaviour
 {
     public static MultiplierManager Instance { private set; get; }
@@ -38,18 +39,6 @@ public class MultiplierManager : MonoBehaviour
 
     private void Awake()
     {
-        synergyList = new List<Synergy>();
-        currentMultiplier = 1f;
-        previousCard = null;
-        state = State.Zero;
-
-        // Populating the synergy list, DO NOT TOUCH
-        synergyList.Add(new Synergy { previous = 3, current = 0 });
-        synergyList.Add(new Synergy { previous = 3, current = 1 });
-        synergyList.Add(new Synergy { previous = 0, current = 4 });
-        synergyList.Add(new Synergy { previous = 4, current = 1 });
-        synergyList.Add(new Synergy { previous = 2, current = 0 });
-        synergyList.Add(new Synergy { previous = 1, current = 2 });
 
         if (Instance != null)
         {
@@ -59,16 +48,45 @@ public class MultiplierManager : MonoBehaviour
         }
         Instance = this;
 
+        synergyList = new List<Synergy>();
+
+        SetInitialMultiplierStatus();
+
+        // Populating the synergy list, DO NOT TOUCH
+        synergyList.Add(new Synergy { previous = 3, current = 0 });
+        synergyList.Add(new Synergy { previous = 3, current = 1 });
+        synergyList.Add(new Synergy { previous = 0, current = 4 });
+        synergyList.Add(new Synergy { previous = 4, current = 1 });
+        synergyList.Add(new Synergy { previous = 2, current = 0 });
+        synergyList.Add(new Synergy { previous = 1, current = 2 });
+
     }
+
+    private void Start()
+    {
+        CardUI.OnAnyCardSelected += OnAnyCardSelected_MultiplierStateChanger;
+        CardStackManager.Instance.OnClearStack += CardStackManager_OnClearStack;
+    }
+
+    private void CardStackManager_OnClearStack(object sender, EventArgs e)
+    {
+        SetInitialMultiplierStatus();
+      
+    }
+
     private enum State
     {
         Zero,
         One,
         Two,
-        Three
     }
 
     private State state;
+
+    private void OnAnyCardSelected_MultiplierStateChanger(object sender, CardUI.OnAnyCardSelectedArgs e)
+    {
+        MultiplierStateChanger(e.baseCard);
+    }
     private void MultiplierStateChanger(BaseCard currentSelectedCard)
     {
         if(currentSelectedCard == null)
@@ -90,6 +108,7 @@ public class MultiplierManager : MonoBehaviour
                 Synergy possibleSynergy = new Synergy {previous = previousCard.elementId, current = currentSelectedCard.elementId };
                 if (synergyList.Contains(possibleSynergy))
                 {
+                    Debug.Log("Synergy found!");
                     // Cards can stack one more time. we move to state two 
                     currentMultiplier = previousCard.stackMultiplier * currentSelectedCard.stackMultiplier;
                     previousCard = currentSelectedCard;
@@ -114,7 +133,8 @@ public class MultiplierManager : MonoBehaviour
                     currentMultiplier = currentMultiplier * currentSelectedCard.stackMultiplier;
                     previousCard = currentSelectedCard;
                     AddDamage(currentSelectedCard);
-                    state = State.Three;
+                    state = State.Zero;
+                    SetInitialMultiplierStatus();
                 }
                 else
                 {
@@ -125,12 +145,8 @@ public class MultiplierManager : MonoBehaviour
                     state = State.One;
                 }
                 break;
-            case State.Three:
-                previousCard = null;
-                currentMultiplier = 1;
-                state = State.Zero;
-                break;
         }
+        Debug.Log("current mulitplier = " + currentMultiplier);
     }
 
     private void AddDamage(BaseCard currentSelectedCard)
@@ -139,7 +155,14 @@ public class MultiplierManager : MonoBehaviour
         {
             return;
         }
-        damage += currentSelectedCard.baseAttackPoints * currentMultiplier;
+        if(state == State.Zero)
+        {
+            damage = currentSelectedCard.baseAttackPoints;
+        }
+        else
+        {
+            damage += currentSelectedCard.baseAttackPoints * currentMultiplier;
+        }
     }
 
     public int GetRoundedDamage()
@@ -150,5 +173,13 @@ public class MultiplierManager : MonoBehaviour
     public float GetCurrentMultiplier()
     {
         return currentMultiplier;
+    }
+
+    private void SetInitialMultiplierStatus()
+    {
+        currentMultiplier = 1f;
+        damage = 0;
+        previousCard = null;
+        state = State.Zero;
     }
 }

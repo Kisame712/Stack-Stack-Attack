@@ -47,16 +47,6 @@ public class CardManager : MonoBehaviour
         tempList = windCards;
         allCardMap[4] = tempList;
 
-
-        for(int i = 0; i< 5; i++)
-        {
-            foreach(BaseCard baseCard in allCardMap[i])
-            {
-                Debug.Log(baseCard.elementId + " " + baseCard.cardIndex + " " + baseCard.cardName);
-            }
-        }
-       
-
     }
 
     private void Start()

@@ -18,3 +18,4 @@ MonoBehaviour:
   baseAttackPoints: 25
   cardIndex: 3
   stackMultiplier: 2
+  elementSprite: {fileID: 4225585547303986467, guid: 97c029c56f9115042bc1f3344d891118, type: 3}
