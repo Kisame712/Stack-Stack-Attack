@@ -6,27 +6,38 @@ public class ElementCardParent : MonoBehaviour
     [SerializeField] private Transform cardPrefab;
 
     private List<BaseCard> elementActiveCards;
-    private void OnEnable()
+
+    private void Awake()
     {
-        elementActiveCards = CardManager.Instance.GetElementActiveCards(elementId);
-
-        Debug.Log(elementActiveCards.Count);
-
-        for (int i = 0; i < elementActiveCards.Count; i++) 
-        {
-            Transform newCard = Instantiate(cardPrefab, transform);
-        }
-            
+        PopulateParent();
     }
 
+    private void OnEnable()
+    {
+        foreach (Transform elementCard in transform)
+        {
+            elementCard.gameObject.SetActive(true);
+        }
+
+    }
 
     private void OnDisable()
     {
         foreach(Transform elementCard in transform)
         {
-            Destroy(gameObject);
+            elementCard.gameObject.SetActive(false);
         }
+    }
 
-        elementActiveCards.Clear();
+    private void PopulateParent()
+    {
+        elementActiveCards = CardManager.Instance.GetElementActiveCards(elementId);
+
+        for (int i = 0; i < elementActiveCards.Count; i++)
+        {
+            Transform newCard = Instantiate(cardPrefab, transform);
+            CardUI cardUI = newCard.GetComponent<CardUI>();
+            cardUI.UpdateCardVisuals(elementActiveCards[i]);
+        }
     }
 }
