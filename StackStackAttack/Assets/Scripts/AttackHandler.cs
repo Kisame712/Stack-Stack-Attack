@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 public class AttackHandler : MonoBehaviour
 {
-    public event EventHandler OnActionButtonClicked;
+    public static event EventHandler OnActionButtonClicked;
     private Button attackButton;
 
     private void Awake()

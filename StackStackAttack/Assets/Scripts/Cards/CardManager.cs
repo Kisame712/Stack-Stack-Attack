@@ -51,9 +51,14 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
-        activePlayerCards = player.GetPlayerCards();
+        ShopCardUI.OnAnyCardBought += ShopCardUI_OnAnyCardBought;
+        FetchPlayerCards();
     }
 
+    private void ShopCardUI_OnAnyCardBought(object sender, ShopCardUI.OnAnyCardBoughtEventArgs e)
+    {
+        FetchPlayerCards();
+    }
 
     public List<BaseCard> GetElementActiveCards(int elementId)
     {
@@ -72,5 +77,20 @@ public class CardManager : MonoBehaviour
         }
 
         return activeElementCardList;
+    }
+
+    public Dictionary<int, List<BaseCard>> GetAllCardMap()
+    {
+        return allCardMap;
+    }
+
+    private void FetchPlayerCards()
+    {
+        activePlayerCards = player.GetPlayerCards();
+    }
+
+    public bool IsActivePlayerCard(BaseCard baseCard)
+    {
+        return activePlayerCards.Contains(baseCard);
     }
 }

@@ -17,4 +17,7 @@ public class BaseCard : ScriptableObject
 
     // Add a sprite for every element to reprent the card type
     public Sprite elementSprite;
+
+    // Card amount to buy cards from shop
+    public int cardAmount;
 }
