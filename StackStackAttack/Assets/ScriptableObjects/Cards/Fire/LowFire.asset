@@ -19,3 +19,4 @@ MonoBehaviour:
   cardIndex: 0
   stackMultiplier: 1.2
   elementSprite: {fileID: -3181523566747969945, guid: d72997196100c6445a2997d82a6e569c, type: 3}
+  cardAmount: 50

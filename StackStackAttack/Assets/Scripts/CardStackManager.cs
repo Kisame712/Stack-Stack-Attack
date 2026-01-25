@@ -32,6 +32,7 @@ public class CardStackManager : MonoBehaviour
     private void OnAnyCardSelected_AddToStack(object sender, CardUI.OnAnyCardSelectedArgs e)
     {
         currentStackCards.Add(e.baseCard);
+        Debug.Log(currentStackCards.Count);
     }
 
     private void OnClearButtonClicked_ClearStack(object sender, EventArgs e)
@@ -44,5 +45,10 @@ public class CardStackManager : MonoBehaviour
     {
         currentStackCards.Clear();
         OnClearStack?.Invoke(this, EventArgs.Empty);
+    }
+
+    public int GetCurrentStackCount()
+    {
+        return currentStackCards.Count;
     }
 }

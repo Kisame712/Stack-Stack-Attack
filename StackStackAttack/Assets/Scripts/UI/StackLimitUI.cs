@@ -7,17 +7,18 @@ public class StackLimitUI : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private GameObject iconsAndParents;
 
-    private int currentStack;
-
+    private int currentStackCount;
+    private int playerStackCount;
     private void Awake()
     {
+        currentStackCount = 0;
         stackLimitText = GetComponent<TextMeshProUGUI>();
+        playerStackCount = player.GetStackLimit();
     }
     private void Start()
     {
         CardUI.OnAnyCardSelected += OnAnyCardSelected_IncreaseStackedCards;
         CardStackManager.Instance.OnClearStack += CardStackManager_OnClearStack;
-        currentStack = 0;
 
         SetUIStatus();
     }
@@ -25,13 +26,12 @@ public class StackLimitUI : MonoBehaviour
     private void CardStackManager_OnClearStack(object sender, EventArgs e)
     {
         iconsAndParents.SetActive(true);
-        currentStack = 0;
-        UpdateStackText();
+        ClearStackText();
     }
 
     private void SetUIStatus()
     {
-        stackLimitText.text = $"Stacked Cards - {currentStack} / {player.GetStackLimit()}";
+        stackLimitText.text = $"Stacked Cards - {currentStackCount} / {playerStackCount}";
     }
 
     private void OnAnyCardSelected_IncreaseStackedCards(object sender, CardUI.OnAnyCardSelectedArgs e)
@@ -41,14 +41,17 @@ public class StackLimitUI : MonoBehaviour
 
     private void UpdateStackText()
     {
-        if (currentStack < player.GetStackLimit())
-        {
-            currentStack++;
-            SetUIStatus();
-        }
-        else
+        currentStackCount++;
+        if(currentStackCount >= player.GetStackLimit())
         {
             iconsAndParents.SetActive(false);
         }
+        SetUIStatus();
+    }
+
+    private void ClearStackText()
+    {
+        currentStackCount = 0;
+        stackLimitText.text = $"Stacked Cards - {currentStackCount} / {playerStackCount}";
     }
 }

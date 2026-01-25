@@ -7,6 +7,8 @@ public class DamageUI : MonoBehaviour
     [SerializeField] private Image damageBar;
     [SerializeField] private float requiredDamage;
     [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private Color initialColor;
+    [SerializeField] private Color successColor;
     private void Start()
     {
         CardUI.OnAnyCardSelected += OnAnyCardSelected_UpdateDamage;
@@ -24,11 +26,19 @@ public class DamageUI : MonoBehaviour
     {
         damageBar.fillAmount = GetNormalizedDamage();
         damageText.text = $"Damage - {MultiplierManager.Instance.GetRoundedDamage()} / {requiredDamage}";
+        if(damageBar.fillAmount == 1)
+        {
+            damageBar.color = successColor;
+        }
+        else
+        {
+            damageBar.color = initialColor;
+        }
     }
 
     private float GetNormalizedDamage()
     {
-        return MultiplierManager.Instance.GetRoundedDamage() / requiredDamage;
+        return Mathf.Clamp01(MultiplierManager.Instance.GetRoundedDamage() / requiredDamage);
     }
 
     private void SetInitialUI()

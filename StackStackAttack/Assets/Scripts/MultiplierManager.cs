@@ -129,12 +129,12 @@ public class MultiplierManager : MonoBehaviour
                 possibleSynergy = new Synergy { previous = previousCard.elementId, current = currentSelectedCard.elementId };
                 if (synergyList.Contains(possibleSynergy))
                 {
+                    Debug.Log("Synergy found!");
                     // Max synergy achieved, still moving to state three for cleanup
                     currentMultiplier = currentMultiplier * currentSelectedCard.stackMultiplier;
                     previousCard = currentSelectedCard;
                     AddDamage(currentSelectedCard);
-                    state = State.Zero;
-                    SetInitialMultiplierStatus();
+                    ResetMultiplierSynergies();
                 }
                 else
                 {
@@ -147,6 +147,7 @@ public class MultiplierManager : MonoBehaviour
                 break;
         }
         Debug.Log("current mulitplier = " + currentMultiplier);
+        Debug.Log("current damage value = " + damage);
     }
 
     private void AddDamage(BaseCard currentSelectedCard)
@@ -157,7 +158,7 @@ public class MultiplierManager : MonoBehaviour
         }
         if(state == State.Zero)
         {
-            damage = currentSelectedCard.baseAttackPoints;
+            damage += currentSelectedCard.baseAttackPoints;
         }
         else
         {
@@ -179,6 +180,13 @@ public class MultiplierManager : MonoBehaviour
     {
         currentMultiplier = 1f;
         damage = 0;
+        previousCard = null;
+        state = State.Zero;
+    }
+
+    private void ResetMultiplierSynergies()
+    {
+        currentMultiplier = 1f;
         previousCard = null;
         state = State.Zero;
     }
