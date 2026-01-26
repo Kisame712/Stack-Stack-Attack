@@ -5,7 +5,7 @@ using TMPro;
 public class DamageUI : MonoBehaviour
 {
     [SerializeField] private Image damageBar;
-    [SerializeField] private float requiredDamage;
+    [SerializeField] private int requiredDamage;
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private Color initialColor;
     [SerializeField] private Color successColor;
@@ -36,9 +36,16 @@ public class DamageUI : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        CardUI.OnAnyCardSelected -= OnAnyCardSelected_UpdateDamage;
+        CardStackManager.Instance.OnClearStack -= CardStackManager_ClearStack;
+    }
+
     private float GetNormalizedDamage()
     {
-        return Mathf.Clamp01(MultiplierManager.Instance.GetRoundedDamage() / requiredDamage);
+        return  (float)MultiplierManager.Instance.GetRoundedDamage() / requiredDamage;
+        
     }
 
     private void SetInitialUI()
@@ -46,4 +53,10 @@ public class DamageUI : MonoBehaviour
         damageBar.fillAmount = 0;
         damageText.text = $"Damage - {0} / {requiredDamage}";
     }
+
+    public int GetRequiredDamage()
+    {
+        return requiredDamage;
+    }
+
 }

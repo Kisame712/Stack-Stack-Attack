@@ -33,6 +33,11 @@ public class CardUI : MonoBehaviour
         });
     }
 
+    private void OnDestroy()
+    {
+        cardButton.onClick.RemoveAllListeners();
+    }
+
     public void UpdateCardVisuals(BaseCard baseCard)
     {
         this.baseCard = baseCard;

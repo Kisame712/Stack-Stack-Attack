@@ -38,9 +38,16 @@ public class ShopCardUI : MonoBehaviour
             if (CoinManager.Instance.TryBuyCard(baseCard.cardAmount))
             {
                 CoinManager.Instance.BuySelectedCard(baseCard.cardAmount);
+                cardButton.interactable = false;
+                inactiveImage.gameObject.SetActive(true);
                 OnAnyCardBought?.Invoke(this, new OnAnyCardBoughtEventArgs { cardAmount = baseCard.cardAmount, baseCard = this.baseCard }); 
             }
         });
+    }
+
+    private void OnDestroy()
+    {
+        cardButton.onClick.RemoveAllListeners();
     }
 
     public void UpdateCardVisuals(BaseCard baseCard)
@@ -52,12 +59,12 @@ public class ShopCardUI : MonoBehaviour
         baseAttackDamageText.text = baseCard.baseAttackPoints.ToString();
         damageMultiplierText.text = "x" + $"{baseCard.stackMultiplier}";
 
-        CheckCardStatus();
+        CheckCardStatus(baseCard);
     }
 
-    private void CheckCardStatus()
+    private void CheckCardStatus(BaseCard baseCard)
     {
-        if (!CoinManager.Instance.TryBuyCard(baseCard.cardAmount) || !(CardManager.Instance.IsActivePlayerCard(baseCard)))
+        if ((baseCard.cardAmount > CoinManager.Instance.GetCurrentCoins()) || (CardManager.Instance.IsActivePlayerCard(baseCard)))
         {
             cardButton.interactable = false;
             inactiveImage.gameObject.SetActive(true);

@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        ShopCardUI.OnAnyCardBought -= ShopCardUI_OnAnyCardBought;
+    }
+
     public List<BaseCard> GetPlayerCards()
     {
         return playerCards;

@@ -9,28 +9,40 @@ public class ElementCardParent : MonoBehaviour
 
     private void Awake()
     {
-        PopulateParent();
+        elementActiveCards = new List<BaseCard>();
     }
 
     private void OnEnable()
     {
-        foreach (Transform elementCard in transform)
-        {
-            elementCard.gameObject.SetActive(true);
-        }
-
+        PopulateParent();
     }
 
-    private void OnDisable()
+    private void Start()
     {
-        foreach(Transform elementCard in transform)
+        ShopCardUI.OnAnyCardBought += ShopCardUI_OnAnyCardBought;
+    }
+
+    private void ShopCardUI_OnAnyCardBought(object sender, ShopCardUI.OnAnyCardBoughtEventArgs e)
+    {
+        if(elementId == e.baseCard.elementId)
         {
-            elementCard.gameObject.SetActive(false);
+            PopulateParent();
         }
     }
+
+    private void OnDestroy()
+    {
+        ShopCardUI.OnAnyCardBought -= ShopCardUI_OnAnyCardBought;
+    }
+
 
     private void PopulateParent()
     {
+        foreach (Transform child in transform)
+        {
+            Destroy(child);
+        }
+
         elementActiveCards = CardManager.Instance.GetElementActiveCards(elementId);
 
         for (int i = 0; i < elementActiveCards.Count; i++)
@@ -40,4 +52,5 @@ public class ElementCardParent : MonoBehaviour
             cardUI.UpdateCardVisuals(elementActiveCards[i]);
         }
     }
+
 }
