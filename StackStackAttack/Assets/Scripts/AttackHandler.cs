@@ -15,6 +15,7 @@ public class AttackHandler : MonoBehaviour
     {
         attackButton.onClick.AddListener(() =>
         {
+            GameManager.Instance.SetIsGameOver(true);
             OnActionButtonClicked?.Invoke(this, EventArgs.Empty);
         });
 

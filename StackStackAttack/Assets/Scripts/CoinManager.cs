@@ -49,4 +49,8 @@ public class CoinManager : MonoBehaviour
         SaveCoins();
     }
 
+    public int GetCurrentCoins()
+    {
+        return currentCoins;
+    }
 }
