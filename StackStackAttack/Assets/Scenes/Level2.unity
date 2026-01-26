@@ -1911,7 +1911,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.40831488, g: 0.3969598, b: 0.4792453, a: 0}
+  m_BackGroundColor: {r: 0.32088283, g: 0.29071552, b: 0.5018867, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2638,7 +2638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageUI
   damageBar: {fileID: 638216645}
-  requiredDamage: 100
+  requiredDamage: 500
   damageText: {fileID: 949165536}
   initialColor: {r: 0.35686275, g: 0.6509804, b: 0.3529412, a: 1}
   successColor: {r: 0.27200428, g: 0.72670645, b: 0.9547169, a: 1}
@@ -6111,7 +6111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -493, y: 233}
+  m_AnchoredPosition: {x: -495, y: 233}
   m_SizeDelta: {x: 200, y: 80}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1568990658
@@ -7627,11 +7627,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerCards:
-  - {fileID: 11400000, guid: 5d2af5d03cacad04b8cfe6d74ff9f98a, type: 2}
-  - {fileID: 11400000, guid: 9df1d64bbb1dc2c4585669bb97c597ad, type: 2}
-  - {fileID: 11400000, guid: f484c6770371c2241a072d34f74fd353, type: 2}
-  - {fileID: 11400000, guid: 9f2546b7eaa3fe241bdabb71cfca597f, type: 2}
-  - {fileID: 11400000, guid: f12a1ecf66dd2a346a8a27a8307dfb5b, type: 2}
+  - {fileID: 11400000, guid: 3dc93695833be324fad69b1a3a2699bb, type: 2}
+  - {fileID: 11400000, guid: 11d31282267ba4245a61687337a8da80, type: 2}
+  - {fileID: 11400000, guid: 80accf50c58a8734f9d23ead3675cb1b, type: 2}
   stackLimit: 5
 --- !u!1 &1984661496
 GameObject:

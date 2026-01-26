@@ -26,7 +26,7 @@ public class ElementCardParent : MonoBehaviour
     {
         if(elementId == e.baseCard.elementId)
         {
-            PopulateParent();
+            AddNewCard(e.baseCard);
         }
     }
 
@@ -40,7 +40,7 @@ public class ElementCardParent : MonoBehaviour
     {
         foreach (Transform child in transform)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
 
         elementActiveCards = CardManager.Instance.GetElementActiveCards(elementId);
@@ -53,4 +53,12 @@ public class ElementCardParent : MonoBehaviour
         }
     }
 
+
+    private void AddNewCard(BaseCard baseCard)
+    {
+        Transform newCard = Instantiate(cardPrefab, transform);
+        CardUI cardUI = newCard.GetComponent<CardUI>();
+        cardUI.UpdateCardVisuals(baseCard);
+
+    }
 }
