@@ -16,6 +16,11 @@ public class CoinsUI : MonoBehaviour
         UpdateCoinsUI();
     }
 
+    private void OnDestroy()
+    {
+        ShopCardUI.OnAnyCardBought -= ShopCardUI_OnAnyCardBought;
+    }
+
     private void ShopCardUI_OnAnyCardBought(object sender, ShopCardUI.OnAnyCardBoughtEventArgs e)
     {
         UpdateCoinsUI();

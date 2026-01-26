@@ -29,10 +29,15 @@ public class CardStackManager : MonoBehaviour
     }
 
 
+    private void OnDestroy()
+    {
+        CardUI.OnAnyCardSelected -= OnAnyCardSelected_AddToStack;
+        clearStackHandler.OnClearButtonClicked -= OnClearButtonClicked_ClearStack;
+    }
+
     private void OnAnyCardSelected_AddToStack(object sender, CardUI.OnAnyCardSelectedArgs e)
     {
         currentStackCards.Add(e.baseCard);
-        Debug.Log(currentStackCards.Count);
     }
 
     private void OnClearButtonClicked_ClearStack(object sender, EventArgs e)

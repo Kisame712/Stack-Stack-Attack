@@ -23,6 +23,12 @@ public class StackLimitUI : MonoBehaviour
         SetUIStatus();
     }
 
+    private void OnDestroy()
+    {
+        CardUI.OnAnyCardSelected -= OnAnyCardSelected_IncreaseStackedCards;
+        CardStackManager.Instance.OnClearStack -= CardStackManager_OnClearStack;
+    }
+
     private void CardStackManager_OnClearStack(object sender, EventArgs e)
     {
         iconsAndParents.SetActive(true);

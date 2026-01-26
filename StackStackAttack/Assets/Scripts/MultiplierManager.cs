@@ -68,6 +68,12 @@ public class MultiplierManager : MonoBehaviour
         CardStackManager.Instance.OnClearStack += CardStackManager_OnClearStack;
     }
 
+    private void OnDestroy()
+    {
+        CardUI.OnAnyCardSelected -= OnAnyCardSelected_MultiplierStateChanger;
+        CardStackManager.Instance.OnClearStack -= CardStackManager_OnClearStack;
+    }
+
     private void CardStackManager_OnClearStack(object sender, EventArgs e)
     {
         SetInitialMultiplierStatus();
@@ -108,7 +114,6 @@ public class MultiplierManager : MonoBehaviour
                 Synergy possibleSynergy = new Synergy {previous = previousCard.elementId, current = currentSelectedCard.elementId };
                 if (synergyList.Contains(possibleSynergy))
                 {
-                    Debug.Log("Synergy found!");
                     // Cards can stack one more time. we move to state two 
                     currentMultiplier = previousCard.stackMultiplier * currentSelectedCard.stackMultiplier;
                     previousCard = currentSelectedCard;
@@ -129,7 +134,6 @@ public class MultiplierManager : MonoBehaviour
                 possibleSynergy = new Synergy { previous = previousCard.elementId, current = currentSelectedCard.elementId };
                 if (synergyList.Contains(possibleSynergy))
                 {
-                    Debug.Log("Synergy found!");
                     // Max synergy achieved, still moving to state three for cleanup
                     currentMultiplier = currentMultiplier * currentSelectedCard.stackMultiplier;
                     previousCard = currentSelectedCard;
@@ -146,8 +150,6 @@ public class MultiplierManager : MonoBehaviour
                 }
                 break;
         }
-        Debug.Log("current mulitplier = " + currentMultiplier);
-        Debug.Log("current damage value = " + damage);
     }
 
     private void AddDamage(BaseCard currentSelectedCard)

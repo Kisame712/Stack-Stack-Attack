@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System;
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance { private set; get; }
@@ -16,7 +16,6 @@ public class CoinManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         LoadCoins();
         
@@ -27,7 +26,7 @@ public class CoinManager : MonoBehaviour
         currentCoins = PlayerPrefs.GetInt("currentCoins", 0);
     }
 
-    private void SaveCoins()
+    public void SaveCoins()
     {
         PlayerPrefs.SetInt("currentCoins", currentCoins);
     }
@@ -52,5 +51,10 @@ public class CoinManager : MonoBehaviour
     public int GetCurrentCoins()
     {
         return currentCoins;
+    }
+
+    public void AddCoins(int earnedCoins)
+    {
+        currentCoins += earnedCoins;
     }
 }

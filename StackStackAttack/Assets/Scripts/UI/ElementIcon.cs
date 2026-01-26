@@ -23,4 +23,8 @@ public class ElementIcon : MonoBehaviour
         });
     }
 
+    private void OnDestroy()
+    {
+        iconButton.onClick.RemoveAllListeners();
+    }
 }

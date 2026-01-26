@@ -18,4 +18,9 @@ public class ClearStackHandler : MonoBehaviour
             OnClearButtonClicked?.Invoke(this, EventArgs.Empty);
         });
     }
+
+    private void OnDestroy()
+    {
+        clearButton.onClick.RemoveAllListeners();
+    }
 }

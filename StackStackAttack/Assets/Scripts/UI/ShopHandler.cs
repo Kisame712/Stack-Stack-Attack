@@ -22,4 +22,9 @@ public class ShopHandler : MonoBehaviour
         });
     }
 
+    private void OnDestroy()
+    {
+        button.onClick.RemoveAllListeners();
+    }
+
 }
